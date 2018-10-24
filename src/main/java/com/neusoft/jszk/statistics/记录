@@ -1,0 +1,30 @@
+1. Mapping
+ElasticSearch中的映射（Mapping）用来定义一个文档，可以定义所包含的字段以及字段的类型、分词器及属性等等。
+映射可以分为动态映射和静态映射。
+（1）动态映射
+我们知道，在关系数据库中，需要事先创建数据库，然后在该数据库实例下创建数据表，然后才能在该数据表中插入数据。
+而ElasticSearch中不需要事先定义映射（Mapping），文档写入ElasticSearch时，会根据文档字段自动识别类型，这种机制称之为动态映射。
+
+（2）静态映射
+当然，在ElasticSearch中也可以事先定义好映射，包含文档的各个字段及其类型等，这种方式称之为静态映射。
+
+2. 集群配置：
+主节点配置：
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+cluster.name: statistics
+node.name: master
+node.master: true
+network.host: 192.168.1.198
+从节点配置：
+cluster.name: statistics
+node.name: slave1
+network.host: 192.168.1.198
+http.port: 8200
+discovery.zen.ping.unicast.hosts: ["192.168.1.198"]
+
+3.mapping配置讲解：
+text类型在存储数据的时候会默认进行分词，并生成索引。
+而keyword存储数据的时候，不会分词建立索引，显然，这样划分数据更加节省内存。
+index属性指定字段是否索引，不索引也就不可搜索，取值为true或false
+

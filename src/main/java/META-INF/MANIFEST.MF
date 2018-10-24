@@ -1,0 +1,43 @@
+Manifest-Version: 1.0
+Class-Path: gson-2.8.5.jar lucene-join-7.4.0.jar joda-time-2.9.9.jar s
+ pring-expression-5.0.9.RELEASE.jar spring-beans-5.0.9.RELEASE.jar spr
+ ing-web-5.0.9.RELEASE.jar spring-jcl-5.0.9.RELEASE.jar jopt-simple-5.
+ 0.2.jar lucene-highlighter-7.4.0.jar transport-6.4.2.jar httpclient-4
+ .5.6.jar netty-common-4.1.29.Final.jar elasticsearch-cli-6.4.2.jar sp
+ ring-webmvc-5.0.9.RELEASE.jar logback-core-1.2.3.jar lucene-spatial-7
+ .4.0.jar tomcat-embed-core-8.5.34.jar spring-context-5.0.9.RELEASE.ja
+ r elasticsearch-rest-client-6.4.2.jar commons-lang-2.6.jar logback-cl
+ assic-1.2.3.jar netty-codec-4.1.29.Final.jar commons-codec-1.11.jar h
+ ppc-0.7.1.jar lucene-misc-7.4.0.jar jackson-core-2.9.6.jar elasticsea
+ rch-secure-sm-6.4.2.jar tomcat-embed-websocket-8.5.34.jar spring-boot
+ -2.0.5.RELEASE.jar javax.annotation-api-1.3.2.jar lucene-analyzers-co
+ mmon-7.4.0.jar hibernate-validator-6.0.12.Final.jar spring-boot-start
+ er-tomcat-2.0.5.RELEASE.jar netty-buffer-4.1.29.Final.jar spring-boot
+ -starter-logging-2.0.5.RELEASE.jar elasticsearch-x-content-6.4.2.jar 
+ parent-join-client-6.4.2.jar ezmorph-1.0.6.jar httpcore-4.4.10.jar ne
+ tty-transport-4.1.29.Final.jar commons-collections-3.2.1.jar compiler
+ -0.9.3.jar log4j-to-slf4j-2.10.0.jar aggs-matrix-stats-client-6.4.2.j
+ ar log4j-api-2.10.0.jar elasticsearch-6.4.2.jar slf4j-api-1.7.25.jar 
+ jackson-datatype-jsr310-2.9.6.jar spring-core-5.0.9.RELEASE.jar jul-t
+ o-slf4j-1.7.25.jar lucene-spatial3d-7.4.0.jar snakeyaml-1.19.jar luce
+ ne-core-7.4.0.jar elasticsearch-rest-high-level-client-6.4.2.jar comm
+ ons-logging-1.1.1.jar spring-boot-devtools-2.0.5.RELEASE.jar jna-4.5.
+ 1.jar jackson-dataformat-yaml-2.9.6.jar httpcore-nio-4.4.10.jar elast
+ icsearch-core-6.4.2.jar lucene-sandbox-7.4.0.jar lucene-queries-7.4.0
+ .jar lucene-suggest-7.4.0.jar lucene-backward-codecs-7.4.0.jar jackso
+ n-dataformat-smile-2.9.6.jar spring-boot-starter-web-2.0.5.RELEASE.ja
+ r spring-aop-5.0.9.RELEASE.jar transport-netty4-client-6.4.2.jar nett
+ y-codec-http-4.1.29.Final.jar spring-boot-starter-2.0.5.RELEASE.jar j
+ ackson-dataformat-cbor-2.9.6.jar HdrHistogram-2.1.9.jar jboss-logging
+ -3.3.2.Final.jar validation-api-2.0.1.Final.jar classmate-1.3.4.jar l
+ ang-mustache-client-6.4.2.jar json-lib-2.2.3-jdk15.jar t-digest-3.2.j
+ ar httpasyncclient-4.1.4.jar jna-4.5.1.jar percolator-client-6.4.2.ja
+ r lucene-spatial-extras-7.4.0.jar lucene-memory-7.4.0.jar jackson-ann
+ otations-2.9.0.jar reindex-client-6.4.2.jar jackson-datatype-jdk8-2.9
+ .6.jar netty-handler-4.1.29.Final.jar netty-resolver-4.1.29.Final.jar
+  jackson-module-parameter-names-2.9.6.jar rank-eval-client-6.4.2.jar 
+ lucene-queryparser-7.4.0.jar spring-boot-autoconfigure-2.0.5.RELEASE.
+ jar tomcat-embed-el-8.5.34.jar commons-beanutils-1.9.3.jar spring-boo
+ t-starter-json-2.0.5.RELEASE.jar jackson-databind-2.9.6.jar lucene-gr
+ ouping-7.4.0.jar
+
