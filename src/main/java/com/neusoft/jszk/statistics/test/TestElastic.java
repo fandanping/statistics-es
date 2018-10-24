@@ -1,6 +1,7 @@
 package com.neusoft.jszk.statistics.test;
 
 import com.neusoft.jszk.statistics.SortStatistics;
+import com.neusoft.jszk.statistics.service.ELasticInsertHandler;
 import com.neusoft.jszk.statistics.service.ELasticSearchHandler;
 import com.neusoft.jszk.statistics.service.ElasticIndexHandler;
 import org.elasticsearch.client.ElasticsearchClient;
@@ -34,7 +35,20 @@ public class TestElastic {
         listOfObjects.add(jsonMap3);
         Map<String,Integer>  result=SortStatistics.getIpcSort(listOfObjects);
         System.out.println(result);*/
-        TransportClient client= ElasticIndexHandler.getTransportClient();
-        ELasticSearchHandler.getAnResult("aa","aa","an",client);
+
+       /* TransportClient client= ElasticIndexHandler.getTransportClient();
+        ELasticSearchHandler.getAnResult("aa","aa","an",client);*/
+        //测试插入单篇文档
+       /* TransportClient client= ElasticIndexHandler.getTransportClient();
+        Map<String, Object> jsonMap1 = new HashMap<String, Object>();
+        jsonMap1.put("an","an1");
+        jsonMap1.put("ipc",new String[]{"A01/12","A02/12","A13/12","B01/12","","A10"});
+        ELasticInsertHandler.insertDoc("test","test",jsonMap1,client);*/
+       //测试查询单篇文档
+       /* TransportClient client=ElasticIndexHandler.getTransportClient();
+        ELasticInsertHandler.getDoc("test","test","Tl-mpWYB1lGPeyY7zsPb",client);*/
+       //测试删除一篇文档
+         TransportClient client=ElasticIndexHandler.getTransportClient();
+        ELasticInsertHandler.deleteDoc("test","test","Tl-mpWYB1lGPeyY7zsPb",client);
     }
 }

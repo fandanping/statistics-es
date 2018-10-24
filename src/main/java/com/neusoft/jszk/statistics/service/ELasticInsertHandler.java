@@ -1,7 +1,10 @@
 package com.neusoft.jszk.statistics.service;
-import com.neusoft.jszk.statistics.Utils.ESTools;
+import javafx.scene.control.IndexRange;
 import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.action.bulk.BulkResponse;
+import org.elasticsearch.action.delete.DeleteResponse;
+import org.elasticsearch.action.get.GetResponse;
+import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.action.support.WriteRequest;
 import org.elasticsearch.client.transport.TransportClient;
 import java.util.Iterator;
@@ -33,4 +36,47 @@ public class ELasticInsertHandler {
             System.out.println(bulkResponse.buildFailureMessage());
         }
     }
+
+    /**
+     * 方法2说明：插入单篇文档
+     * @param index
+     * @param type
+     * @param map
+     * @param client
+     */
+    public static void  insertDoc(String index,String type,Map<String,Object> map,TransportClient client){
+        IndexResponse response=client.prepareIndex(index,type).setSource(map).get();
+        //文档是否创建成功,如果是新创建的,就返回created;如果文档不是首次创建二是被更新过的就返回Ok
+        System.out.println(response.status());
+    }
+
+    /**
+     * 方法3说明：通过文档id读取一个文档
+     * @param index
+     * @param type
+     * @param id
+     * @param client
+     * @return
+     */
+    public static String getDoc(String index,String type,String id,TransportClient client){
+        GetResponse response=client.prepareGet(index,type,id).get();
+        String content=response.getSourceAsString();
+        System.out.println(content);
+        return content;
+    }
+
+    /**
+     * 方法4说明：通过文档id删除一个文档
+     * @param index
+     * @param type
+     * @param id
+     * @param client
+     * @return
+     */
+    public static String deleteDoc(String index,String type,String id,TransportClient client){
+        DeleteResponse response=client.prepareDelete(index,type,id).get();
+        System.out.println(response.status().toString());
+        return  response.status().toString(); //删除成功返回ok；删除失败返回NOT_FOUND
+    }
+
 }

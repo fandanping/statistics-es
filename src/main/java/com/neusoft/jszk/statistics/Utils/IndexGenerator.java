@@ -3,7 +3,7 @@ package com.neusoft.jszk.statistics.Utils;
 import java.util.UUID;
 
 /**
- * 索引名称创建工具类
+ * 类说明：索引名称创建工具类
  */
 public class IndexGenerator {
     public static String generate(){
