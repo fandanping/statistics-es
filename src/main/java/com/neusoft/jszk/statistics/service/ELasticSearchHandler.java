@@ -54,7 +54,8 @@ public class ELasticSearchHandler {
      */
     public static  String getAnResult(String index,String type,String fields,TransportClient client){
         //查询指定字段的所有值
-        SearchResponse response = client.prepareSearch(index).setTypes(type)
+        //注释：setFetchSource 返回指定字段
+        SearchResponse response = client.prepareSearch(index).setTypes(type).setFetchSource(new String[] { "an" }, null)
                 .setQuery(QueryBuilders.matchAllQuery())
                 .setExplain(false)
                 .execute().actionGet();
@@ -71,6 +72,7 @@ public class ELasticSearchHandler {
         }
         int orindex=sortKeyword.lastIndexOf("or");
         String result =sortKeyword.substring(0,orindex).trim();
+        System.out.println(result);
         return result;
     }
 }

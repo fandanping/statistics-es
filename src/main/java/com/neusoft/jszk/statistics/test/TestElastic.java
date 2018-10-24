@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public class TestElastic {
     public static void main (String[] args){
-        Map<String, Object> jsonMap1 = new HashMap<String, Object>();
+   /*     Map<String, Object> jsonMap1 = new HashMap<String, Object>();
         jsonMap1.put("an","an1");
         jsonMap1.put("date","1111");
         jsonMap1.put("ipc",new String[]{"A01/12","A02/12","A13/12","B01/12","","A10"});
@@ -33,8 +33,8 @@ public class TestElastic {
         listOfObjects.add(jsonMap2);
         listOfObjects.add(jsonMap3);
         Map<String,Integer>  result=SortStatistics.getIpcSort(listOfObjects);
-        System.out.println(result);
-       /* TransportClient client= ElasticIndexHandler.getTransportClient();
-        ELasticSearchHandler.getAnResult("aa","aa","an",client);*/
+        System.out.println(result);*/
+        TransportClient client= ElasticIndexHandler.getTransportClient();
+        ELasticSearchHandler.getAnResult("aa","aa","an",client);
     }
 }
