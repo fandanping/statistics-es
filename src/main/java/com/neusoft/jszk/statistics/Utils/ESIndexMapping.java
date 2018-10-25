@@ -4,7 +4,7 @@ import java.io.IOException;
 import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
 
 /**
- * 构建索引映射
+ * 类说明：构建索引映射
  */
 public class ESIndexMapping {
     public static XContentBuilder getMapping(){

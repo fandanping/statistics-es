@@ -1,5 +1,4 @@
 package com.neusoft.jszk.statistics.service;
-import javafx.scene.control.IndexRange;
 import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.action.bulk.BulkResponse;
 import org.elasticsearch.action.delete.DeleteResponse;
@@ -18,12 +17,43 @@ import java.util.Map;
  */
 public class ELasticInsertHandler {
     /**
-     * 方法说明：批量导入数据
+     * 方法1说明：批量导入数据:一次1000条
+     * @param index 索引名称
+     * @param type type名称
+     * @param listOfObjects Map集合
+     */
+    public  static void  searchBulk(String index,String type,List<Map<String ,Object>> listOfObjects,TransportClient client){
+        //做法2：每次导入1000条
+        BulkRequestBuilder bulkRequest= client.prepareBulk().setRefreshPolicy(WriteRequest.RefreshPolicy.IMMEDIATE);
+        Iterator<Map<String,Object>> itr = listOfObjects.iterator();
+        int count=0;
+        while (itr.hasNext()){
+            count++;
+            Map<String,Object> document = itr.next();
+            bulkRequest.add(client.prepareIndex(index,type).setSource(document));
+            if(count %1000 ==0){
+                System.out.println("本次提交了1000条");
+                BulkResponse bulkResponse = bulkRequest.execute().actionGet();
+                if (bulkResponse.hasFailures()) {
+                    System.out.println("message"+bulkResponse.buildFailureMessage());
+                }
+                //重新创建一个bulk
+                bulkRequest=client.prepareBulk();
+            }
+        }
+        bulkRequest.execute().actionGet();
+        System.out.println("总共提交了："+count);
+    }
+
+    /**
+     * 方法2说明：批量导入数据:(和方法1有所区别 )
      * @param index
      * @param type
      * @param listOfObjects
+     * @param client
      */
-    public  static void  searchBulk(String index,String type,List<Map<String ,Object>> listOfObjects,TransportClient client){
+    public  static void  insertBulkReconds(String index,String type,List<Map<String ,Object>> listOfObjects,TransportClient client){
+        //做法1：一次性批量导入
         BulkRequestBuilder bulkRequest= client.prepareBulk().setRefreshPolicy(WriteRequest.RefreshPolicy.IMMEDIATE);
         Iterator<Map<String,Object>> itr = listOfObjects.iterator();
         while (itr.hasNext()){
@@ -38,7 +68,7 @@ public class ELasticInsertHandler {
     }
 
     /**
-     * 方法2说明：插入单篇文档
+     * 方法3说明：插入单篇文档
      * @param index
      * @param type
      * @param map
@@ -51,7 +81,7 @@ public class ELasticInsertHandler {
     }
 
     /**
-     * 方法3说明：通过文档id读取一个文档
+     * 方法4说明：通过文档id读取一个文档
      * @param index
      * @param type
      * @param id
@@ -66,7 +96,7 @@ public class ELasticInsertHandler {
     }
 
     /**
-     * 方法4说明：通过文档id删除一个文档
+     * 方法5说明：通过文档id删除一个文档
      * @param index
      * @param type
      * @param id
